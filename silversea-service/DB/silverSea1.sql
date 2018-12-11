@@ -11,7 +11,7 @@
  Target Server Version : 50717
  File Encoding         : 65001
 
- Date: 11/12/2018 16:53:14
+ Date: 11/12/2018 18:18:06
 */
 
 SET NAMES utf8mb4;
@@ -290,7 +290,6 @@ CREATE TABLE `user` (
   `username` varchar(200) DEFAULT NULL COMMENT '用户姓名',
   `usertel` varchar(20) DEFAULT NULL COMMENT '用户电话',
   `comment` varchar(200) DEFAULT NULL COMMENT '用户备注',
-  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`userid`),
   KEY `user_id` (`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表';
@@ -299,8 +298,8 @@ CREATE TABLE `user` (
 -- Records of user
 -- ----------------------------
 BEGIN;
-INSERT INTO `user` VALUES ('3045ea0f-9416-4dd4-bc0c-b5201ab7b3e4', 'lyx', 'E10ADC3949BA59ABBE56E057F20F883E', '123123', '123123', '123123', '2018-01-12 09:52:14');
-INSERT INTO `user` VALUES ('b016a828-3e37-4300-af7d-b6ac1db006d1', 'admin', 'E10ADC3949BA59ABBE56E057F20F883E', '管理员', NULL, NULL, '2018-02-01 16:19:52');
+INSERT INTO `user` VALUES ('3045ea0f-9416-4dd4-bc0c-b5201ab7b3e4', 'lyx', 'E10ADC3949BA59ABBE56E057F20F883E', '123123', '123123', '123123');
+INSERT INTO `user` VALUES ('b016a828-3e37-4300-af7d-b6ac1db006d1', 'admin', 'E10ADC3949BA59ABBE56E057F20F883E', '管理员', NULL, NULL);
 COMMIT;
 
 -- ----------------------------

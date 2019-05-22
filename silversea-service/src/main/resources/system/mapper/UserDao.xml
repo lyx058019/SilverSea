@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lyx.silversea.dao.system.UserDao">
+    <resultMap id="BaseResultMap" type="com.lyx.silversea.domain.system.User">
+
+        <!-- userid -->
+        <result column="userid" jdbcType="VARCHAR" property="userid"/>
+
+        <!-- 登录名称 -->
+        <result column="loginname" jdbcType="VARCHAR" property="loginname"/>
+
+        <!-- 密码 -->
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+
+        <!-- 用户姓名 -->
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+
+        <!-- 用户电话 -->
+        <result column="usertel" jdbcType="VARCHAR" property="usertel"/>
+
+        <!-- 用户备注 -->
+        <result column="comment" jdbcType="VARCHAR" property="comment"/>
+    </resultMap>
+    <insert id="insert">
+    insert into user (userid, loginname, password, 
+      username, usertel, comment
+      )
+    values (#{userid,jdbcType=VARCHAR}, #{loginname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{username,jdbcType=VARCHAR}, #{usertel,jdbcType=VARCHAR}, #{comment,jdbcType=VARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective">
+        insert into user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userid != null">
+                userid,
+            </if>
+            <if test="loginname != null">
+                loginname,
+            </if>
+            <if test="password != null">
+                password,
+            </if>
+            <if test="username != null">
+                username,
+            </if>
+            <if test="usertel != null">
+                usertel,
+            </if>
+            <if test="comment != null">
+                comment,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userid != null">
+                #{userid,jdbcType=VARCHAR},
+            </if>
+            <if test="loginname != null">
+                #{loginname,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="username != null">
+                #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="usertel != null">
+                #{usertel,jdbcType=VARCHAR},
+            </if>
+            <if test="comment != null">
+                #{comment,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2018-12-26 16:09:42 ### -->
+
+    <!-- Your codes goes here!!! -->
+    <select id="userLoginInfo" parameterType="map" resultType="com.lyx.silversea.domain.system.User">
+        SELECT
+            `user`.userid,
+            `user`.loginname,
+            `user`.`password`,
+            `user`.username,
+            `user`.usertel,
+            `user`.`comment`
+        FROM
+            `user`
+        WHERE
+            `user`.loginname = #{loginname}
+            AND `user`.`password` = #{password}
+  </select>
+</mapper>

@@ -1,0 +1,1 @@
+package com.lyx.silversea.service.system;import com.lyx.silversea.domain.system.User;public interface UserService {    /**     * 用户登录     * @param loginname     * @param loginpwd     * @return     */    User loginUserInfo(String loginname, String loginpwd);}
